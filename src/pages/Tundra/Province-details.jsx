@@ -22,10 +22,10 @@ function ProvinceDetails() {
         const querySnapshot = await getDocs(collection(Db, "data"));
             querySnapshot.forEach((doc) => {
             list.push({id: doc?.id, ...doc.data(), 
-                viewBtn : <button className="btn login-btn" onClick={() => history.push(`/province-details/${doc.id}`)}>View</button>});
+            });
         })
-        const res = list?.find((prv) => prv?.Province === id )
-        setData([res]);
+        const res = list.find((_id) => _id.id === id )
+        setData(res);
       } catch (error) {
         console.log(error);
       }
@@ -44,6 +44,8 @@ console.log(dataDb);
         <Row className="d-flex justify-content-around align-items-center" data-aos="fade-bottom">
       <h1> Province details </h1>
       </Row>
+
+      <h1> {dataDb?.Area} </h1>
 
       </Container>
 

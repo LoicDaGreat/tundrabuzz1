@@ -26,19 +26,15 @@ function TundraTable() {
             list.push({id: doc?.id, ...doc.data(), 
                 viewBtn : <button className="btn login-btn" onClick={() => history.push(`/province-details/${doc.id}`)}>View</button>});
         })
-        console.log(list);
 
-        let save ;
-       for(let i = 0; list.length; i++){
-          save += list[i] 
-       }
-       
-       console.log(save);
-
-        console.log(res);
-
-
-        setData([res]);
+        let arr = []
+        const keep = list.map(el =>  {
+            if(el.Province === id){
+              arr.push(el)
+            }
+        } )
+        console.log(arr);
+       setData(arr)
       } catch (error) {
         console.log(error);
       }
