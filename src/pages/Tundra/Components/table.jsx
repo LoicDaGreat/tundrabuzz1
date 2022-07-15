@@ -11,7 +11,6 @@ import { withTranslation } from "react-i18next"
 function TundraTable() {
 
     let history = useHistory();
-
     const [dataDb, setData] = useState(
       [
         {
@@ -36,10 +35,6 @@ function TundraTable() {
       ]
     );
 
-    
-
-
-
   const column = [
    {label: "Property Name",field: "property_name",sort: "asc",width: 150},
    {label: "Property Code",field: "property_code",sort: "asc",width: 150},
@@ -54,13 +49,10 @@ function TundraTable() {
   columns: column,
   rows: dataDb,  
  } 
- 
 
   return (
     <React.Fragment>
       <div className="page-content">
-      <MetaTagComp meta_tags="Tundra" />
-      <Breadcrumb default="Dashboard" title="Tundra" />
 
       <Container fluid>
         <div className="page-title-box">

@@ -7,7 +7,7 @@
 // Light Theme
 @import "./bootstrap.scss";
 @import "./app.scss";
-
+@import "./_own_variables.scss";
 // RTL Mode
 // @import "./rtl/bootstrap-rtl";
 // @import "./rtl/components-rtl";
@@ -266,4 +266,19 @@ label {
 }
 .wizard .steps .nav-link .number {
   border-color: #626ed4;
+}
+.login-btn {
+  background: $background;
+}
+.login-btn {
+  color: white;
+}
+.login-btn:hover,
+.login-btn:focus {
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transition: 0.3s;
+  background: $background;
+  transform: translateY(-0.25em);
 }
