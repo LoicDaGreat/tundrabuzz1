@@ -1,12 +1,15 @@
 import PropTypes from "prop-types"
-import React , {useState }from 'react'
+import React , {useState, useEffect }from 'react'
 import { Col, Container, Row, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Card, CardBody, Modal } from "reactstrap";
 import { MDBDataTable, MDBDataTableV5  } from "mdbreact"
 import { withRouter, Link, useHistory} from "react-router-dom"
 import { withTranslation } from "react-i18next"
 
-// import Breadcrumb from "../../components/Common/Breadcrumb";
-// import MetaTagComp from "../../components/Common/MetaTags";
+
+import { collection, getDocs } from 'firebase/firestore';
+import { Db } from "../../../DB/firebase-init";
+
+console.log(Db);
 
 function TundraTable() {
 
@@ -35,6 +38,27 @@ function TundraTable() {
       ]
     );
 
+
+    useEffect(() =>{
+    const fetchData = async() =>{
+      let list = [];
+      try {
+        const querySnapshot = await getDocs(collection(Db, "data"));
+            querySnapshot.forEach((doc) => {
+            list.push({id: doc.id, ...doc.data(), clickEvent: () => handleClick(doc.id)});
+        })
+        setData(list);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, [])
+
+
+console.log(dataDb);
+
+
   const column = [
    {label: "Property Name",field: "property_name",sort: "asc",width: 150},
    {label: "Property Code",field: "property_code",sort: "asc",width: 150},
@@ -46,8 +70,8 @@ function TundraTable() {
   ];
 
  const data = { 
-  columns: column,
-  rows: dataDb,  
+    columns: column,
+    rows: dataDb,  
  } 
 
   return (
