@@ -7,37 +7,24 @@ import { withTranslation } from "react-i18next"
 
 
 import { collection, getDocs } from 'firebase/firestore';
-import { Db } from "../../../DB/firebase-init";
+import { Db } from "../../DB/firebase-init";
 
-function TundraTable() {
+function ProvinceDetails() {
 
     const { id } = useParams();
     let history = useHistory();
     const [dataDb, setData] = useState();
 
-
     useEffect(() =>{
     const fetchData = async() =>{
       let list = [];
-      let list_2 = [];
       try {
         const querySnapshot = await getDocs(collection(Db, "data"));
             querySnapshot.forEach((doc) => {
             list.push({id: doc?.id, ...doc.data(), 
                 viewBtn : <button className="btn login-btn" onClick={() => history.push(`/province-details/${doc.id}`)}>View</button>});
         })
-        console.log(list);
-
-        let save ;
-       for(let i = 0; list.length; i++){
-          save += list[i] 
-       }
-       
-       console.log(save);
-
-        console.log(res);
-
-
+        const res = list?.find((prv) => prv?.Province === id )
         setData([res]);
       } catch (error) {
         console.log(error);
@@ -48,43 +35,14 @@ function TundraTable() {
 
 console.log(dataDb);
 
-  const column = [
-   {label: "Area",field: "Area",sort: "asc",width: 150},
-   {label: "District Municipality",field: "District Municipality",sort: "asc",width: 150},
-   {label: "Local Municipality",field: "Local Municipality",sort: "asc",width: 150},
-   {label: "View",field: "viewBtn",sort: "asc",width: 150},
-  ];
-
- const data = { 
-    columns: column,
-    rows: dataDb,  
- } 
-
   return (
     <React.Fragment>
       <div className="page-content">
 
       <Container fluid>
-        <div className="page-title-box">
-          <Row className="align-items-center">
-          {
-            /* 
-            <div>
-              <Link  className="btn login-btn w-md waves-effect waves-light" > + Add Tundra </Link>
-            </div>
-            */
-          }
-          </Row>
-        </div>
 
         <Row className="d-flex justify-content-around align-items-center" data-aos="fade-bottom">
-        <CardBody>
-          <Card className="bd-rds">
-            <CardBody>
-              <MDBDataTable entries={5} entriesOptions={[5, 10, 50]} responsive bordered striped hover  data={data} fullPagination />            
-            </CardBody>
-          </Card>
-        </CardBody>
+      <h1> Province details </h1>
       </Row>
 
       </Container>
@@ -94,9 +52,9 @@ console.log(dataDb);
   )
 }
 
-TundraTable.propTypes = {
+ProvinceDetails.propTypes = {
   location: PropTypes.object,
   t: PropTypes.any,
 }
 
-export default withRouter(withTranslation()(TundraTable))
+export default withRouter(withTranslation()(ProvinceDetails))

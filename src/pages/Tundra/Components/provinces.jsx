@@ -39,16 +39,16 @@ const Provinces = props => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Cards | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title> Tundra </title>
         </MetaTags>
         <Container fluid={true}>
           {/* <Breadcrumbs maintitle="Veltrix" title="UI Elements" breadcrumbItem="Cards" /> */}
 
-          <Row>
+          <Row className="province mt-5">
           <Col md={4}>
               <Card>
               <CardBody>
-                <CardImg top className="img-fluid" src={North_West} alt="Veltrix" />
+                <CardImg top className="img-fluid" src={North_West} alt="tundra" />
                 </CardBody>
                 <CardBody>
                   <CardTitle className="h4">NORTH WEST</CardTitle>
@@ -58,7 +58,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                    to="/province/NW"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -80,7 +80,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/FS"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -103,7 +103,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/GP"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -113,7 +113,7 @@ const Provinces = props => {
             </Col>   
           </Row>
 
-          <Row>
+          <Row className="province mt-5">
             <Col md={4}>
               <Card>
               <CardBody>
@@ -127,7 +127,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/KZN"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -149,7 +149,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/LM"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -172,7 +172,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/MP"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -182,7 +182,7 @@ const Provinces = props => {
             </Col>   
           </Row>
 
-          <Row>
+          <Row className="province mt-5">
           <Col md={4}>
               <Card>
               <CardBody>
@@ -196,7 +196,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/EC"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -218,7 +218,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/NC"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>
@@ -241,7 +241,7 @@ const Provinces = props => {
                   </p>
                   <div className="text-center">
                   <Link
-                    to="#"
+                  to="/province/WC"
                     className="btn btn-primary waves-effect waves-light">
                     Button
                   </Link>

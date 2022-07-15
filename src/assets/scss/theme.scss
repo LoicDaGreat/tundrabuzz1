@@ -282,3 +282,6 @@ label {
   background: $background;
   transform: translateY(-0.25em);
 }
+
+
+@media(min-width: 768px){ .province{width: 90% !important; margin: 0 auto} }
