@@ -13,10 +13,13 @@ import ForgetPwd from "../pages/Authentication/ForgetPassword"
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 import Tundra from "../pages/Tundra/index"
+import Provinces from "../pages/Tundra/Components/provinces"
+
 
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
   { path: "/tundra", component: Tundra },
+  { path: "/provinces", component: Provinces },
 
   // // //profile
   { path: "/profile", component: UserProfile },
